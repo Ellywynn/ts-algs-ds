@@ -6,7 +6,7 @@ class LLNode<T> {
   }
 }
 
-class LinkedList<T> {
+export default class LinkedList<T> {
   private head: LLNode<T> | null = null;
   private tail: LLNode<T> | null = null;
   private listSize: number = 0;
@@ -44,9 +44,9 @@ class LinkedList<T> {
     }
   }
 
-  display(): void {
+  display(): string {
     if (this.head === null) {
-      return console.log("The list is empty.");
+      return "The list is empty.";
     }
 
     const values = new Array<T>();
@@ -57,7 +57,7 @@ class LinkedList<T> {
       node = node.next;
     }
 
-    console.log(values.join(" - "));
+    return values.join(" - ");
   }
 
   get size(): number {
@@ -74,29 +74,3 @@ class LinkedList<T> {
     return this.head!.value;
   }
 }
-
-const list = new LinkedList<number>();
-console.log("Head", list.first);
-console.log("Tail", list.last);
-list.push(10);
-list.push(10);
-list.push(13);
-list.push(15);
-console.log("size:", list.size);
-list.display();
-console.log("Head", list.first);
-console.log("Tail", list.last);
-console.log("Removing 10");
-list.remove(10);
-list.display();
-console.log("size:", list.size);
-list.push(3);
-list.push(2);
-console.log("Adding new values:");
-list.display();
-console.log("Removing 3:");
-list.remove(3);
-list.display();
-console.log("Removing 2:");
-list.remove(2);
-list.display();
