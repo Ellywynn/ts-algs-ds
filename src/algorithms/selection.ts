@@ -1,4 +1,6 @@
 export default <T>(array: Array<T>): Array<T> => {
+  if (array.length < 2) return array;
+
   const findSmallestIndex = (arr: Array<T>): number => {
     let smallest = arr[0],
       index = 0;
